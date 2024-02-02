@@ -32,7 +32,7 @@ public class PlayerFire : MonoBehaviour
             rb.AddForce(Camera.main.transform.forward * throwPower, ForceMode.Impulse);
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
 

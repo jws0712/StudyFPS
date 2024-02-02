@@ -16,6 +16,10 @@ public class PlayerMove : MonoBehaviour
     public bool isJumping = false;
 
     public float moveSpeed = 7f;
+
+    float currentTime = 0;
+
+    float attackDelay = 2f;
     // Start is called before the first frame update
     void Start()
     {
