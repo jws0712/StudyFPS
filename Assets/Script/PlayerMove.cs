@@ -17,9 +17,8 @@ public class PlayerMove : MonoBehaviour
 
     public float moveSpeed = 7f;
 
-    float currentTime = 0;
+    public int hp = 20;
 
-    float attackDelay = 2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,5 +59,10 @@ public class PlayerMove : MonoBehaviour
         //transform.position += dir * moveSpeed * Time.deltaTime;
 
 
+    }
+
+    public void DamageAction(int damage)
+    {
+        hp -= damage;
     }
 }
