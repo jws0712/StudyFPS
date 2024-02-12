@@ -16,9 +16,13 @@ public class PlayerFire : MonoBehaviour
 
     public int weaponPower = 5;
 
+    Animator anim;
+
     void Start()
     {
-        ps = bulletEffect.GetComponent<ParticleSystem>();    
+        ps = bulletEffect.GetComponent<ParticleSystem>();
+
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -43,6 +47,11 @@ public class PlayerFire : MonoBehaviour
             Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
 
             RaycastHit hitInfo = new RaycastHit();
+
+            if(anim.GetFloat("MoveMotion") == 0)
+            {
+                anim.SetTrigger("Attack");
+            }
 
             if(Physics.Raycast(ray, out hitInfo))
             {
