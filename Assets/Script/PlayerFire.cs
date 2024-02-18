@@ -18,6 +18,8 @@ public class PlayerFire : MonoBehaviour
 
     Animator anim;
 
+    public GameObject[] eff_Flash;
+
     void Start()
     {
         ps = bulletEffect.GetComponent<ParticleSystem>();
@@ -48,6 +50,8 @@ public class PlayerFire : MonoBehaviour
 
             RaycastHit hitInfo = new RaycastHit();
 
+            StartCoroutine(ShootEffectOn(0.05f));
+
             if(anim.GetFloat("MoveMotion") == 0)
             {
                 anim.SetTrigger("Attack");
@@ -71,5 +75,16 @@ public class PlayerFire : MonoBehaviour
                 
             }
         }
+        IEnumerator ShootEffectOn(float duration)
+        {
+            int num = Random.Range(0, eff_Flash.Length);
+
+            eff_Flash[num].SetActive(true);
+
+            yield return new WaitForSeconds(duration);
+
+            eff_Flash[num].SetActive(false);
+        }
+
     }
 }

@@ -206,6 +206,9 @@ public class EnemyFSM : MonoBehaviour
         }
         hp -= hitPower;
 
+        smith.isStopped = true;
+        smith.ResetPath();
+
         if(hp > 0)
         {
             m_State = EnemyState.Damaged;
